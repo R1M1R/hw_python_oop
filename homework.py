@@ -91,10 +91,11 @@ class SportsWalking(Training):
         self.height: float = height
 
     def get_spent_calories(self) -> float:
+        INCREASING_THE_DEGREE = (
+            self.get_mean_speed() * self.CALORIES_MEAN_SPEED)
         return ((self.CALORIES_COEFFICIENT
                 * self.weight
-                + ((self.get_mean_speed()
-                    * self.CALORIES_MEAN_SPEED)**2
+                + (pow(INCREASING_THE_DEGREE, 2)
                     / (self.height
                  / self.LENGTH_MEANS_METER))
                 * self.CALORIES_COEFFICIENT_SHIFT
